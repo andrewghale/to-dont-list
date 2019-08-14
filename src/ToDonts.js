@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import uuid4 from "uuid4";
-import "./styles/main.scss";
+import "./styles/app.scss";
 
 function ToDonts() {
   const [todonts, setTodonts] = useState([
@@ -46,10 +46,12 @@ function ToDonts() {
   return (
     <div className="todontlist">
       <h1>To-Don't List</h1>
+      <h3>Things to NOT do</h3>
+      <p className="explanation">Click on an item to remove it</p>
       { todonts.map(({ id, todonts }) => (
         <p onClick={() => handleRemove(id)} key={id}>{todonts}</p>
       )) }
-      <div>
+      <div className="form-container">
         <form onSubmit={handleSubmit}>
           <label htmlFor="">
             Add To-Don't:
